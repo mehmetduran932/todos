@@ -24,7 +24,7 @@ function TodoList({ addTodo, todos }) {
 
   return (
     <div>
-      <h1>Todo List</h1>
+      <h1>TodoList</h1>
       <div>
         <input
           type="text"
