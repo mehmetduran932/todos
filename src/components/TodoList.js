@@ -3,14 +3,8 @@ import { connect } from "react-redux";
 import { addTodo, removeTodo } from "../actions/todoAction";
 import { ListGroup, ListGroupItem, Button } from "reactstrap";
 
-function TodoList({ addTodo, todos }) {
-  console.log(todos);
-
+function TodoList({ addTodo, removeTodo, todos }) {
   const [todoItem, setTodoItem] = useState("");
-
-   useEffect(() => {
-     console.log("Remove: " + removeTodo());
-   }, [todoItem]);
 
   const todoRemove = (listItem) => {
     let filtered = [];

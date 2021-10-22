@@ -10,7 +10,6 @@ const INITIAL_STATE = {
 export const reducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case "ADD_TODO":
-      console.log("eklendi");
       return {
         ...state,
         todos: [
@@ -23,15 +22,12 @@ export const reducer = (state = INITIAL_STATE, action) => {
       };
 
     case "REMOVE_TODO":
-      console.log(action.payload);
-      console.log("sildi");
       return {
         ...state,
         todos: action.payload,
       };
 
     default:
-      console.log("girdi");
       return state;
   }
 };
