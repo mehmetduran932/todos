@@ -4,8 +4,17 @@ import { addTodo, removeTodo } from "../actions/todoAction";
 import { ListGroup, ListGroupItem, Button } from "reactstrap";
 
 function TodoList({ addTodo, removeTodo, todos }) {
+<<<<<<< HEAD
   const [todoItem, setTodoItem] = useState("");
 
+=======
+  console.log(todos);
+
+  const [todoItem, setTodoItem] = useState("");
+
+  useEffect(() => {}, [todoItem]);
+
+>>>>>>> d784aecaefee75444c90d80b27b09809b0f329bc
   const todoRemove = (listItem) => {
     let filtered = [];
     filtered = todos.filter((item) => item !== listItem);
@@ -13,7 +22,12 @@ function TodoList({ addTodo, removeTodo, todos }) {
   };
 
   const ekleTodo = () => {
-    addTodo(todoItem);
+    if (todoItem.length === 0) {
+      alert("boş değer eklenemez");
+    } else {
+      addTodo(todoItem);
+    }
+    setTodoItem("");
   };
 
   return (
@@ -53,7 +67,7 @@ function TodoList({ addTodo, removeTodo, todos }) {
 
 const mapStateToProps = (state) => {
   return {
-    todos: state.todos,
+    todos: state.todos
   };
 };
 
