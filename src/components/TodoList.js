@@ -3,14 +3,12 @@ import { connect } from "react-redux";
 import { addTodo, removeTodo } from "../actions/todoAction";
 import { ListGroup, ListGroupItem, Button } from "reactstrap";
 
-function TodoList({ addTodo, todos }) {
+function TodoList({ addTodo, removeTodo, todos }) {
   console.log(todos);
 
   const [todoItem, setTodoItem] = useState("");
 
-   useEffect(() => {
-     console.log("Remove: " + removeTodo());
-   }, [todoItem]);
+  useEffect(() => {}, [todoItem]);
 
   const todoRemove = (listItem) => {
     let filtered = [];
@@ -19,7 +17,12 @@ function TodoList({ addTodo, todos }) {
   };
 
   const ekleTodo = () => {
-    addTodo(todoItem);
+    if (todoItem.length === 0) {
+      alert("boş değer eklenemez");
+    } else {
+      addTodo(todoItem);
+    }
+    setTodoItem("");
   };
 
   return (
@@ -59,7 +62,7 @@ function TodoList({ addTodo, todos }) {
 
 const mapStateToProps = (state) => {
   return {
-    todos: state.todos,
+    todos: state.todos
   };
 };
 
